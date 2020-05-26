@@ -6,4 +6,5 @@ Final project in the course embedded and distributed AI at Jönköping Universit
 Dependencies:
 
 OpenCV 3.4.3
+
 Visual studio 2019
