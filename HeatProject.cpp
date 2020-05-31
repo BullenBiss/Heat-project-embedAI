@@ -33,7 +33,6 @@ int main()
 
 	namedWindow("Tracker", CV_WINDOW_NORMAL);
 	namedWindow("Original", CV_WINDOW_NORMAL);
-	namedWindow("Debug", CV_WINDOW_NORMAL);
 
 	// All meetings files from:
 	// https://github.com/bsirmacek/heat-sensor-data
@@ -74,7 +73,7 @@ int main()
 
 		// Takes the normalized data and loads it into cv::Mat format after a thresholding has been performed
 		initialThresholdImage(&heatFrames, normData, meeting);
-
+		
 
 		for (int iFrame = 0; iFrame < heatFrames.size(); iFrame++)
 		{
@@ -135,6 +134,8 @@ int main()
 				}
 			}
 
+
+
 			// Additional thesholding for the edge detection, converts gradient pixels to binary for easier edge detection
 			Mat currentFrameHyst = hystThreshold(newFrame);
 
@@ -166,6 +167,7 @@ int main()
 				Scalar color = Scalar(0, 0, 200);
 				rectangle(trackingRectangles, boundRect[i].tl(), boundRect[i].br(), color, 1);
 			}
+
 
 			// Used forgetting the mean size of rectangles (only needs to be run once)
 			//sortRect(boundRect, &onePersonRectSize, &twoPersonRectSize, meeting);
